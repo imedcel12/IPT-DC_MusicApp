@@ -19,6 +19,11 @@
                         <a class="nav-link" href="/index">Songs</a>
                          </body>
                     </li>
+                    <li class="nav-item">
+                        <body>
+                        <a class="nav-link" href="/logs">Logs</a>
+                         </body>
+                    </li>
                     @if(auth()->guest())
                     <li class="nav-item">
                         <a class="nav-link" href="/log"> Login</a>

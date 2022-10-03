@@ -1,4 +1,31 @@
 <div>
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <select class="form-select" wire:model.lazy="genre">
+                    <option value="all">All</option>
+                    <option value="POP">Pop</option>
+                    <option value="HIP-HOP">Hip-hop</option>
+                    <option value="REGGAE">Reggae</option>
+                    <option value="ROCK">Rock</option>
+                    <option value="PARTY">Party</option>
+                    <option value="JAZZ">Jazz</option>
+                    <option value="LATIN">Latin</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" wire:model.lazy="album">
+                    <option value="all">All</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="English">English</option>
+                    <option value="Opm">OPM</option>
+                </select>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Search" wire:model.lazy="search">
+            </div>
+        </div>
+    </div>
     <table class="table table-striped">
         <thead class="bg-primary">
             <tr>
@@ -28,4 +55,5 @@
             @endforeach
         </tbody>
     </table>
+    {{$musics->links()}}
 </div>

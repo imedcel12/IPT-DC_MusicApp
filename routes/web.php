@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MusicController;
+use App\Http\Controllers\SiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,8 @@ Route::group(['middleware'=>'auth'], function(){
 Route::get('/index', [MusicController::class, 'index']);
 Route::get('/edit/{mus}', [MusicController::class, 'edit']);
 Route::get('/delete/{mus}', [MusicController::class, 'destroy']);
+
+Route::get('/logs' ,[SiteController::class, 'index']);
+Route::get('/logs', [SiteController::class, 'logs'])->name('logs');
 });
 

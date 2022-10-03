@@ -12,4 +12,16 @@ class Music extends Model
 
     protected $guarded = [];
 
+    public function scopeSearch($query, $terms){
+
+        collect(explode(" ", $terms))
+        ->filter()
+        ->each(function ($term) use($query){
+            $term = '%' . $term . '%';
+
+            $query->where('artist', 'like', $term)
+                ->orWhere('song', 'like', $term);
+        });
+    }
+
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Musics;
 
+use App\Events\UserLog;
 use Livewire\Component;
 use App\Models\Music;
 class Edit extends Component
@@ -33,6 +34,11 @@ class Edit extends Component
             'genre'       =>        $this->genre,
             'album'       =>        $this->album,
         ]);
+
+
+        $log_entry = 'Updated Music: "' .$this->music->song . ' " with an ID: ' .$this->music->id;
+        event(new UserLog($log_entry));
+
         return redirect('/index')->with('message' , 'Updated Sucessfully!');
     }
 

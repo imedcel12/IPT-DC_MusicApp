@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Musics;
 
+use App\Events\UserLog;
 use Livewire\Component;
 use App\Models\Music;
 class Delete extends Component
@@ -15,6 +16,9 @@ class Delete extends Component
     }
     public function deleteMusic(){
         $this->music->delete();
+
+        $log_entry = 'Deleted Music: "' .$this->music->song . ' " with an ID: ' .$this->music->id;
+        event(new UserLog($log_entry));
 
         return redirect('/index')->with('message', 'Deleted Successfully!');
 
